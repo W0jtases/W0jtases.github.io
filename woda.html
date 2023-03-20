@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+	<head>
+	
+		<meta charset="utf-8">
+		<title>Moja witryna</title>
+		<meta name="description" content="Opis zawartości strony dla wyszukiwarek">
+		<meta name="keywords" content="słowa, kluczowe, opisujące, zawartość">
+		<meta name="author" content="Jan Programista">
+		
+		<meta http-equiv="X-Ua-Compatible" content="IE=edge,chrome=1">
+    
+		<link rel="stylesheet" href="style.css">
+		<script src="skrypt.js"></script>
+    
+	</head>
+
+	<body>
+<div id="container">
+<div id="header" class="border"> Źródlana woda uśmiechu doda!!! </div>
+<div id="nav">
+<br><br>
+<div id="content2"> 
+<h3> Oferta handlowa: </h3>
+<form name='formularz'>
+<BR>
+<label for='typ'>Wybierz rodzaj wody: </label>
+<select id='typ' name='typ'>
+<option value='A'>Bonaqua 2 zl   </option>
+<option value='B'>Kropla 3 zl    </option>
+<option value='C'>Cisowianka 4 zl</option>
+<option value='D'>Kranowa 5 zl   </option>
+</select>
+<BR><br>
+
+<label for='ilosc'>Ile butelek? </label>
+<input type='number' id='ilosc' name='ilosc'>
+<BR><br>
+<input type='button' class="button" value='Oblicz' onclick="oblicz()">
+</form>
+<BR>
+<br><br><br><br><br><br><br><br><br><br>
+Wynik:
+<p id='wynik'></p>
+
+<script>
+function oblicz(){
+var wynik=0;
+var typ=document.forms['formularz']['typ'].value;
+var ilosc=document.forms['formularz']['ilosc'].value;
+if(typ=='A')
+{
+wynik+=2*ilosc;
+}
+else if(typ=='B')
+{
+wynik+=3*ilosc;
+}
+else if(typ=='C')
+{
+wynik+=4*ilosc;
+}
+else if(typ=='D')
+{
+wynik+=5*ilosc;
+}
+
+document.getElementById('wynik').innerHTML=wynik;
+}
+</script>
+
+
+
+ </div>
+<div id="content3"> </div>
+
+
+
+
+
+  </div>
+<div id="content"> 
+<br><br> 
+
+<img src="https://www.ros.net.pl/GalleryImages/product_photos/1280_720/311975_370895_1280_720_102515.png" height="570" width="250" class="center"/>
+
+
+</div>
+<div id="footer"> Autor strony: Wojtek S </div>
+</div>
+	</body>
+	
+</html>
