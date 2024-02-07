@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pong</title>
+    <style>
+      #pongCanvas {
+      border: 1px solid black;
+      }
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <h1>Pong</h1>
+        <button onclick="startGame()">Start</button>
+    </div>
+    <canvas id="pongCanvas" width="800" height="400"></canvas>
+
+    <script>
+        
+        var canvas = document.getElementById("pongCanvas");
+        var context = canvas.getContext("2d");
+
+        
+        var paddleWidth = 10;
+        var paddleHeight = 60;
+        var paddleGap = 10;
+        var ballSize = 10;
+        var paddle1Y = canvas.height / 2 - paddleHeight / 2;
+        var paddle2Y = canvas.height / 2 - paddleHeight / 2;
+        var ballX = canvas.width / 2 - ballSize / 2;
+        var ballY = canvas.height / 2 - ballSize / 2;
+        var ballSpeedX = 5;
+        var ballSpeedY = 5;
+
+        
+        var player1Score = 0;
+        var player2Score = 0;
+      
+        var player1Up = false;
+        var player1Down = false;
+        var player2Up = false;
+        var player2Down = false;
+
+        
+        function drawRectangle(x, y, width, height, color) {
+            context.fillStyle = color;
+            context.fillRect(x, y, width, height);
+        }
+
+       
+        function drawCircle(x, y, radius, color) {
+            context.fillStyle = color;
+            context.beginPath();
+            context.arc(x, y, radius, 0, Math.PI * 2, false);
+            context.closePath();
+            context.fill();
+        }
+
+        
+        function drawGame() {
+            
+            drawRectangle(0, 0, canvas.width, canvas.height, "black");
+
+            
+            drawRectangle(paddleGap, paddle1Y, paddleWidth, paddleHeight, "white");
+
+            
+            drawRectangle(canvas.width - paddleWidth - paddleGap, paddle2Y, paddleWidth, paddleHeight, "white");
+
+            
+            drawCircle(ballX, ballY, ballSize / 2, "white");
+
+            
+            context.fillText("Gracz 1: " + player1Score, 100, 100);
+            context.fillText("Gracz 2: " + player2Score, canvas.width - 100, 100);
+        }
+
+        
+        function updateGame() {
+           
+            if (player1Up && paddle1Y > 0) {
+                paddle1Y -= 5;
+            } else if (player1Down && paddle1Y < canvas.height - paddleHeight) {
+                paddle1Y += 5;
+            }
+
+            if (player2Up && paddle2Y > 0) {
+                paddle2Y -= 5;
+            } else if (player2Down && paddle2Y < canvas.height - paddleHeight) {
+                paddle2Y += 5;
+            }
+
+            
+            ballX += ballSpeedX;
+            ballY += ballSpeedY;
+
+            
+            if (ballY < 0 || ballY > canvas.height - ballSize) {
+                ballSpeedY *= -1;
+            }
+
+            
+            if (ballX <= paddleGap + paddleWidth && ballY + ballSize >= paddle1Y && ballY <= paddle1Y + paddleHeight) {
+                ballSpeedX *= -1;
+            }
+
+            if (ballX >= canvas.width - paddleWidth - paddleGap - ballSize && ballY + ballSize >= paddle2Y && ballY <= paddle2Y + paddleHeight) {
+                ballSpeedX *= -1;
+            }
+
+            
+            if (ballX < 0) {
+                player2Score++;
+                resetBall();
+            } else if (ballX > canvas.width) {
+                player1Score++;
+                resetBall();
+            }
+        }
+
+        
+        function resetBall() {
+            ballX = canvas.width / 2 - ballSize / 2;
+            ballY = canvas.height / 2 - ballSize / 2;
+            ballSpeedX *= -1;
+            ballSpeedY *= Math.random() < 0.5 ? -1 : 1;
+        }
+
+        
+        function keyPressed(event) {
+            var keyCode = event.keyCode;
+            if (keyCode === 87) {
+                player1Up = true;
+            } else if (keyCode === 83) {
+                player1Down = true;
+            } else if (keyCode === 38) {
+                player2Up = true;
+            } else if (keyCode === 40) {
+                player2Down = true;
+            }
+        }
+
+        
+        function keyReleased(event) {
+            var keyCode = event.keyCode;
+            if (keyCode === 87) {
+                player1Up = false;
+            } else if (keyCode === 83) {
+                player1Down = false;
+            } else if (keyCode === 38) {
+                player2Up = false;
+            } else if (keyCode === 40) {
+                player2Down = false;
+            }
+        }
+
+        
+        function startGame() {
+            document.getElementById("menu").style.display = "none";
+            canvas.style.display = "block";
+            document.addEventListener("keydown", keyPressed);
+            document.addEventListener("keyup", keyReleased);
+            setInterval(function () {
+                updateGame();
+                drawGame();
+            }, 1000 / 60); 
+        }
+    </script>
+	<p> Gracz 1 porusza się klawiszami W i S </p><br><br>
+	<p> Gracz 2 porusza się strzałkami </p>
+</body>
+</html>
