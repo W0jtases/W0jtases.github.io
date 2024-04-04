@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokemonowe walki</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="content">
+      <div class="pokemon">
+        <p class="hp" id="hp1"></p>
+        <img
+          height="400px"
+          src=""
+          alt="pokemon"
+          id="pokemonSprite1"
+          style="display: none"
+        />
+        <p id="ataki"></p>
+      </div>
+
+      <div class="pokemon2">
+        <p class="hp" id="hp2"></p>
+        <img
+          height="400px"
+          src=""
+          alt="pokemon"
+          id="pokemonSprite2"
+          style="display: none"
+        />
+      </div>
+      <br />
+    </div>
+    <button class="btn" onclick="losowanie()" id="przycisk">WALKA⚔️</button>
+  </body>
+  <script src="skrypt.js"></script>
+</html>
