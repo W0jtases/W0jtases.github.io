@@ -1,0 +1,68 @@
+body {
+  background-color: rgb(0, 0, 0);
+}
+
+.content {
+  width: 80%;
+  max-width: 1500px;
+  height: 1000px;
+  background-image: url(https://images5.alphacoders.com/620/620953.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+  border-radius: 15px;
+}
+
+.skrzynka {
+  display: flex;
+  justify-content: center;
+  background-color: none;
+}
+
+.klucz {
+  height: 300px;
+  width: 300px;
+  background-color: none;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  filter: drop-shadow(8px 8px 10px black);
+}
+
+.klucz:hover {
+  filter: drop-shadow(8px 8px 10px rgb(137, 139, 12));
+}
+
+#p1 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: white;
+}
+
+.blue {
+  filter: drop-shadow(20px 20px 20px rgb(23, 20, 231));
+}
+
+.purple {
+  filter: drop-shadow(20px 20px 20px rgb(117, 8, 189));
+}
+
+.pink {
+  filter: drop-shadow(20px 20px 20px rgb(202, 9, 209));
+}
+
+.red {
+  filter: drop-shadow(20px 20px 20px rgb(209, 9, 9));
+}
+
+.gold {
+  filter: drop-shadow(20px 20px 20px rgb(231, 216, 5));
+}
+
+h1 {
+  text-align: center;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: white;
+}
