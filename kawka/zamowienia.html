@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styl4.css" />
+  </head>
+  <body>
+    <div class="logo">
+      <img src="logo.png" height="100px" alt="hurtownia" />
+    </div>
+    <div class="menu">
+      <a href="index.html">Strona główna </a
+      ><a href="zamowienia.html">Zamówienia</a>
+      <a href="blog.html">Blog</a>
+      <a href="http://gatunki-kawy.pl">Odwiedź także</a>
+    </div>
+    <div class="baner"><h1>Hurtownia kawy</h1></div>
+    <div class="lewy">
+      <h2>Oferta</h2>
+      <ol>
+        <li>Kawa palona Arabica</li>
+        <li>Kawa palona Robusta</li>
+        <li>Kawa bezkofeinowa</li>
+        <li>Kawa zielona</li>
+      </ol>
+    </div>
+    <div class="prawy">
+      <p>Podaj numer kawy:</p>
+      <input type="number" name="numer_kawy" id="liczba_a" />
+      <p>Podaj wagę w dekagramach</p>
+      <input type="number" name="waga_kawy" id="liczba_b" />
+      <button id="btn" onclick="oblicz()">Zamów</button>
+      <p id="p1"></p>
+    </div>
+    <div class="stopka">
+      <p>Stronę przygotował: <b>00000000</b></p>
+    </div>
+  </body>
+  <script>
+    function oblicz() {
+      let numer = document.getElementById("liczba_a").value;
+      let waga = document.getElementById("liczba_b").value;
+
+      if (numer == 1) {
+        let koszt = waga * 5;
+        document.getElementById("p1").innerHTML =
+          "<br> Koszt zamówienia wynosi: " + koszt + " zł";
+      } else if (numer == 2) {
+        let koszt = waga * 6;
+        document.getElementById("p1").innerHTML =
+          "<br> Koszt zamówienia wynosi: " + koszt + " zł";
+      } else if (numer == 3) {
+        let koszt = waga * 7;
+        document.getElementById("p1").innerHTML =
+          "<br> Koszt zamówienia wynosi: " + koszt + " zł";
+      } else {
+        document.getElementById("p1").innerHTML =
+          "<br> Koszt zamówienia wynosi: 0zł";
+      }
+    }
+  </script>
+</html>
