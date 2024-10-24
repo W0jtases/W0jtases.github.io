@@ -20,7 +20,6 @@ nav {
   padding: 0.5rem 0;
   flex: 2;
   display: flex;
-  gap: 0.5rem;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
@@ -30,8 +29,7 @@ nav {
 section.nav-container {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  gap: 2rem;
+  justify-content: space-evenly;
   color: white;
 }
 
