@@ -20,9 +20,7 @@ nav {
   padding: 0.5rem 0;
   flex: 2;
   display: flex;
-  align-items: center;
   justify-content: space-evenly;
-  flex-direction: column;
   max-height: 4rem;
 }
 
