@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -29,7 +31,7 @@ section.nav-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 2rem;
   color: white;
 }
 
@@ -128,6 +130,13 @@ section.profile {
   font-size: 130%;
 }
 
+.profile-info a {
+  text-decoration: none;
+  color: rgb(146, 138, 138);
+  padding: 0.1rem 0;
+  display: inline-block;
+}
+
 section {
   border-radius: 0.5rem;
   max-width: 40rem;
@@ -165,7 +174,7 @@ section.repo {
 .repo p {
   font-size: 90%;
   text-align: left;
-  font-family: monospace;
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
   margin-bottom: 0.5rem;
 }
 
@@ -181,9 +190,4 @@ section.repo {
   border-radius: 50%;
   background-color: gray;
   max-height: 5rem;
-}
-
-.profile-info a {
-  text-decoration: none;
-  color: rgb(146, 138, 138);
 }
