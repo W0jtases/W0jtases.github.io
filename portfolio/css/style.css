@@ -29,7 +29,6 @@ section.nav-container {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  gap: 2rem;
   color: white;
 }
 
